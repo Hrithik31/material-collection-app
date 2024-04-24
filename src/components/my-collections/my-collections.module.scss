@@ -1,0 +1,35 @@
+.mycollections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+  .description {
+    font-size: 13px;
+    line-height: 16.5px;
+    font-weight: 400;
+  }
+  .results-count-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d6;
+    .text {
+      padding: 6px 10px;
+      font-size: 13px;
+      line-height: 13px;
+      font-weight: 500;
+    }
+  }
+  .results-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+}

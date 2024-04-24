@@ -1,0 +1,60 @@
+.add-button-container {
+  display: flex;
+  gap: 10;
+  width: 100%;
+  border-top: 1px solid #d9d9d6;
+  .new-collection {
+    &-acc {
+      display: flex;
+      padding: 10px 12px;
+      gap: 4px;
+      border-radius: 10px;
+      cursor: pointer;
+      .icon-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .text {
+        font-size: 14px;
+        line-height: 14px;
+      }
+    }
+  }
+  .icon {
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    align-self: center;
+  }
+}
+
+.add-button-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 32%;
+  min-height: 157px;
+  max-width: 352px;
+  gap: 16px;
+  padding: 20px;
+  background-color: #f1f1ee;
+  border: 1px solid #d9d9d6;
+  border-radius: 12px;
+
+  .add-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #e5e5e1;
+    cursor: pointer;
+    .add-icon {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}

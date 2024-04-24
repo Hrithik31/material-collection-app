@@ -1,0 +1,35 @@
+.accordian-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 252px;
+  min-height: 276px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #d9d9d6;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+
+  .accordian-wrapper {
+    width: 100%;
+  }
+  .trigger-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .text {
+      font-size: 14px;
+      line-height: 14px;
+    }
+    .trigger-icon {
+      width: 16px;
+      height: 16px;
+      font-size: 16px;
+      align-self: center;
+      margin-right: 5px;
+    }
+  }
+  .hr-tag {
+    width: 100%;
+  }
+}

@@ -1,0 +1,97 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 32%;
+  max-width: 352px;
+  min-height: 157px;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #d9d9d6;
+  border-radius: 12px;
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .card-download-wrapper {
+      display: flex;
+      gap: 5px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background-color: #ece6fa;
+      .card-download-text {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 13px;
+        text-align: left;
+      }
+      .icon-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .icon {
+          width: 12px;
+          height: 12px;
+          font-size: 12px;
+          align-self: center;
+        }
+      }
+    }
+    .card-right-header-wrapper {
+      display: flex;
+      gap: 5px;
+
+      .card-text-icon {
+        display: flex;
+        padding: 6px 10px 6px 10px;
+        gap: 4px;
+        border-radius: 10px 0px 0px 0px;
+        gap: 5px;
+
+        .right-header-text {
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 13px;
+          text-align: left;
+        }
+
+        .sq-icon-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .sq-icon {
+            width: 12px;
+            height: 12px;
+          }
+        }
+      }
+      .delete-icon-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        .delete-icon {
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+  }
+
+  .card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .card-title {
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: 500;
+    }
+
+    .card-description {
+      font-size: 13px;
+      line-height: 16.45px;
+      font-weight: 400;
+    }
+  }
+}
