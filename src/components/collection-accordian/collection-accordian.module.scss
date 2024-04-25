@@ -4,7 +4,6 @@
   gap: 16px;
   width: 100%;
   max-width: 252px;
-  min-height: 276px;
   padding: 16px;
   border-radius: 12px;
   border: 1px solid #d9d9d6;
@@ -17,6 +16,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    cursor: pointer;
     .text {
       font-size: 14px;
       line-height: 14px;
@@ -27,6 +27,43 @@
       font-size: 16px;
       align-self: center;
       margin-right: 5px;
+    }
+  }
+  .accordian-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    margin-top: 16px;
+
+    .accordian-item-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      // width: Fixed (220px) px;
+      // height: Fixed (32px) px;
+      padding: 12px 10px 12px 10px;
+      border-radius: 10px;
+
+      .icon-text-wrapper {
+        display: flex;
+        gap: 4px;
+        .acc-item-icon {
+          width: 14px;
+          height: 14px;
+        }
+        .acc-item-txt {
+          align-self: center;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 14px;
+          text-align: left;
+        }
+      }
+      .acc-item-icon {
+        width: 12px;
+        height: 12px;
+      }
     }
   }
   .hr-tag {

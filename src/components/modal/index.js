@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import styles from "./modal.module.scss";
 const customeModalStyles = {
@@ -20,22 +20,26 @@ const customeModalStyles = {
 const MAX_COLLECTION_NAME_LENGTH = 40;
 const MAX_DESCRIPTION_LENGTH = 140;
 const ModalComponent = (props) => {
-  const { isModalOpen, setIsModalOpen, isDeleteCollection } = props;
+  const {
+    isModalOpen,
+    setIsModalOpen,
+    isDeleteCollection,
+    onSubmit,
+    onDelete,
+  } = props;
   const [collectionName, setCollectionName] = useState("");
   const [description, setDescription] = useState("");
   const [isCollectionNameValid, setIsCollectionNameValid] = useState(true);
   const [isDescriptionValid, setIsDescriptionValid] = useState(true);
   const closeModalHandler = () => {
+    setCollectionName(""); // Reset collectionName
+    setDescription("");
     setIsModalOpen(false);
   };
 
   const collectionNameChangeHandler = (event) => {
     setCollectionName(event?.target?.value);
     setIsCollectionNameValid(
-      event?.target?.value?.length <= MAX_COLLECTION_NAME_LENGTH
-    );
-    console.log(
-      ">>  ",
       event?.target?.value?.length <= MAX_COLLECTION_NAME_LENGTH
     );
   };
@@ -48,26 +52,63 @@ const ModalComponent = (props) => {
 
   const handlerSumbit = (event) => {
     event.preventDefault();
-    console.log(">>> submit handlera");
-    setIsModalOpen(false);
+    !isDeleteCollection && onSubmit && onSubmit(collectionName, description);
+    isDeleteCollection && onDelete && onDelete();
+    setCollectionName(""); // Reset collectionName
+    setDescription("");
   };
+
+  useEffect(() => {
+    return () => {
+      setCollectionName("");
+      setDescription("");
+    };
+  }, []);
   return (
     <>
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModalHandler}
-        style={customeModalStyles}
+        style={{
+          ...customeModalStyles,
+          content: {
+            ...customeModalStyles.content,
+            height: isDeleteCollection
+              ? "290px"
+              : customeModalStyles.content.height,
+          },
+        }}
       >
         <div className={styles["modal-container"]}>
           <form className={styles["form-container"]} onSubmit={handlerSumbit}>
             {isDeleteCollection ? (
               <>
-                <div className={styles["content-wrapper"]}>
-                  <div className={styles["remove-title"]}>
-                    {/* @TODO to addd and complete the delete modal */}
-                    Delete Collection
+                <div className={styles["content-container"]}>
+                  <div className={styles["content-txt-wrapper"]}>
+                    <div className={styles["remove-title"]}>
+                      Delete collection
+                    </div>
+                    <div className={styles["description"]}>
+                      <p>
+                        Are you sure you would like to delete this collection?
+                      </p>
+                      <p>You wont be able to undo this.</p>
+                    </div>
                   </div>
-                  <div className={styles["description"]}>description</div>
+                  <div className={styles["delete-actions-options"]}>
+                    <button
+                      className={`${styles["button"]} ${styles["active"]}`}
+                      type="submit"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className={styles["button"]}
+                      onClick={closeModalHandler}
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
               </>
             ) : (

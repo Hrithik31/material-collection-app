@@ -1,62 +1,37 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolderPlus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import Modal from "react-modal";
+import { addCollection } from "@/service/slices/CollectionSlice";
 import styles from "./add-collection.module.scss";
 import ModalComponent from "../modal";
 
-// const customeModalStyles = {
-//   content: {
-//     width: "466px",
-//     height: "392px",
-//     top: "50%",
-//     left: "50%",
-//     right: "auto",
-//     bottom: "auto",
-//     marginRight: "-50%",
-//     transform: "translate(-50%, -50%)",
-//     borderRadius: "12px",
-//     backgroundColor: "#FBFBF9",
-//     border: "1px solid #d9d9d6",
-//     boxShadow: " 0px 4px 20px 0px #00000026",
-//   },
-// };
-// const MAX_COLLECTION_NAME_LENGTH = 40;
-// const MAX_DESCRIPTION_LENGTH = 140;
 const AddCollectionButton = (props) => {
   const { isAccordianCollectionButton } = props;
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [collectionName, setCollectionName] = useState("");
-  // const [description, setDescription] = useState("");
-  const addCollectionClickHandler = () => {
-    console.log(">> clicked on add collection Button");
+  const openModalHandler = () => {
     setIsModalOpen(true);
   };
-  // const closeModalHandler = () => {
-  //   setIsModalOpen(false);
-  // };
 
-  // const collectionNameChangeHandler = (event) => {
-  //   setCollectionName(event.target.value);
-  // };
-  // const descriptionChangeHandler = (event) => {
-  //   setDescription(event.target.value);
-  // };
-
-  // const isCollectionNameValid =
-  //   collectionName.length <= MAX_COLLECTION_NAME_LENGTH;
-  // const isDescriptionValid = description.length <= MAX_DESCRIPTION_LENGTH;
-
-  // const handlerSumbit = (event) => {
-  //   event.preventDefault();
-  // };
+  const addCollectionHandler = (collectionName, collectionDescrip) => {
+    const newCollectionId = uuidv4();
+    const payload = {
+      id: newCollectionId,
+      name: collectionName,
+      description: collectionDescrip,
+    };
+    dispatch(addCollection(payload));
+    setIsModalOpen(false);
+  };
   return (
     <>
       {isAccordianCollectionButton ? (
         <div className={styles["add-button-container"]}>
           <div
             className={styles["new-collection-acc"]}
-            onClick={addCollectionClickHandler}
+            onClick={openModalHandler}
           >
             <span className={styles["icon-wrapper"]}>
               <FontAwesomeIcon icon={faFolderPlus} className={styles["icon"]} />
@@ -68,7 +43,7 @@ const AddCollectionButton = (props) => {
         <div className={styles["add-button-card-container"]}>
           <div
             className={styles["add-icon-wrapper"]}
-            onClick={addCollectionClickHandler}
+            onClick={openModalHandler}
           >
             <FontAwesomeIcon icon={faPlus} className={styles["add-icon"]} />
           </div>
@@ -78,6 +53,7 @@ const AddCollectionButton = (props) => {
       <ModalComponent
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
+        onSubmit={addCollectionHandler}
       />
     </>
   );

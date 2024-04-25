@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import Dashboard from "@/components/dashboard";
+import { Provider } from "react-redux";
+import store from "@/service/store";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -13,7 +15,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Dashboard />
+        <Provider store={store}>
+          <Dashboard />
+        </Provider>
       </main>
     </>
   );

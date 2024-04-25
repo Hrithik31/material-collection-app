@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCloudArrowDown,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import { removeCollection } from "@/service/slices/CollectionSlice";
 import styles from "./collection-card.module.scss";
-const CollectionCard = () => {
+import ModalComponent from "../modal";
+const CollectionCard = ({ data }) => {
+  const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const deleteCollectionClickHandler = () => {
-    console.log(">> delete collection Click Handler");
+    setIsModalOpen(true);
+  };
+
+  const deleteCollectionhandler = () => {
+    const payload = {
+      id: data?.id,
+    };
+    dispatch(removeCollection(payload));
+    setIsModalOpen(false);
   };
   return (
     <div className={styles["card-container"]}>
@@ -48,12 +61,16 @@ const CollectionCard = () => {
       </div>
 
       <div className={styles["card-content-wrapper"]}>
-        <div className={styles["card-title"]}>My Collection</div>
-        <div className={styles["card-description"]}>
-          Collection Description (Extended) that is added by user when creating
-          the collection to inform users of the content etc.
-        </div>
+        <div className={styles["card-title"]}>{data?.name}</div>
+        <div className={styles["card-description"]}>{data?.description}</div>
       </div>
+
+      <ModalComponent
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        onDelete={deleteCollectionhandler}
+        isDeleteCollection={true}
+      />
     </div>
   );
 };
