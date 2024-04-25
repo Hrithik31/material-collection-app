@@ -20,7 +20,7 @@ const Header = () => {
         <div>
           <Image
             // src="../../../public/images/Header_Profile.jpg"
-            src="/images/Header_Profile.jpg"
+            src="../../../public/images/HeaderProfile.jpg"
             alt="profile icon"
             width={30}
             height={30}
