@@ -19,7 +19,7 @@ const Header = () => {
         </ul>
         <div>
           <Image
-            src="../../../public/images/HeaderProfile.jpg"
+            src="/images/HeaderProfile.jpg"
             alt="profile icon"
             width={30}
             height={30}
