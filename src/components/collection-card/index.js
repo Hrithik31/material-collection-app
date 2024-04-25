@@ -41,7 +41,8 @@ const CollectionCard = ({ data }) => {
             <span className={styles["right-header-text"]}>87</span>
             <span className={styles["sq-icon-wrapper"]}>
               <Image
-                src="../../../public/svg/Vector.svg"
+                // src="../../../public/svg/Vector.svg"
+                src="/svg/Vector.svg"
                 alt="sq-icon"
                 width={12}
                 height={12}
