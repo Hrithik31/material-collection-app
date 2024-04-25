@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
-  basePath: "https://Hrithik31.github.io/material-collection-app",
+  basePath: "",
 };
 
 export default nextConfig;
