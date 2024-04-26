@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
-  basePath: process.env.NEXT_PUBLIC_BASE_URL || "",
+  basePath: "/material-collection-app",
 };
 
 export default nextConfig;
