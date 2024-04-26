@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
-  basePath: "",
+  basePath: process.env.NEXT_PUBLIC_BASE_URL || "",
 };
 
 export default nextConfig;
