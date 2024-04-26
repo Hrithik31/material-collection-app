@@ -6,7 +6,7 @@ const Header = () => {
     <header className={styles["header-container"]}>
       <nav className={styles["header-nav"]}>
         <div className={styles["image-wrapper"]}>
-          <Image src="/svg/logoMark.svg" alt="logo" width={30} height={30} />
+          <Image src="./svg/logoMark.svg" alt="logo" width={30} height={30} />
         </div>
         <ul className={styles["nav-links-container"]}>
           <li className={styles["nav-link"]}>Materials</li>
@@ -19,7 +19,7 @@ const Header = () => {
         </ul>
         <div>
           <Image
-            src="/images/HeaderProfile.jpg"
+            src="./images/HeaderProfile.jpg"
             alt="profile icon"
             width={30}
             height={30}
