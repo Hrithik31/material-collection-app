@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a Assignment application which has two functonalities:
+
+1. Addition of the new collection by the user.
+2. Deleteion of the collection by the user.
+
+Other tasks Include:
+
+1. Modal Popup for addition of new collection.
+2. Modal Popup for delete of the collection.
+3. Real time display of collections on the dashboard.
+4. Real time display of collections on the side nav accordian.
 
 ## Getting Started
 
@@ -24,17 +34,13 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Deploy on github pages
 
-To learn more about Next.js, take a look at the following resources:
+Steps for deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Commit your changes on the branch.
+2. Push the branch to repo.
+3. In the terminal run the command: npm run deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This Assignment Application is deployed on github pages, click this link to access the application:
+https://hrithik31.github.io/material-collection-app/
